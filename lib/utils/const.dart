@@ -4,4 +4,4 @@ const defaultLocale = Locale('ar', 'SA');
 
 const defaultLocaleCode = 'ar';
 
-const appFont = 'Somar Sans';
+const appFont = 'IBM Plex Sans Arabic';
