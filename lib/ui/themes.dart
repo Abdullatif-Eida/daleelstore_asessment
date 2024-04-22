@@ -1,12 +1,14 @@
+import 'package:daleelstore_asessment/ui/styles/app_text_theme.dart';
 import 'package:flutter/cupertino.dart';
 
 final CupertinoThemeData _lightTheme = _buildLightTheme();
 final CupertinoThemeData _darkTheme = _buildDarkTheme();
 
 CupertinoThemeData _buildLightTheme() {
-  return const CupertinoThemeData(
+  return CupertinoThemeData(
     brightness: Brightness.light,
     primaryColor: CupertinoColors.systemBlue,
+    textTheme: AppTextTheme.getCupertinoTextTheme(),
   );
 }
 
@@ -14,6 +16,7 @@ CupertinoThemeData _buildDarkTheme() {
   return CupertinoThemeData(
     brightness: Brightness.dark,
     primaryColor: CupertinoColors.systemIndigo,
+    textTheme: AppTextTheme.getCupertinoTextTheme(),
   );
 }
 

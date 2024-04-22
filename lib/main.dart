@@ -32,7 +32,6 @@ void main() async {
       debugShowCheckedModeBanner: false,
       title: 'Daleelstore',
       theme: AppSettingsCache.getThemeMode(),
-
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),

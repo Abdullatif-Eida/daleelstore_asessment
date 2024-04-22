@@ -15,8 +15,8 @@ class LanguageUtils {
       return Locale(languageCode, countryCode);
     } else {
       // If no stored language preference, return the device locale
-      var deviceLocale = Get.deviceLocale;
-      return deviceLocale ?? defaultLocale; // Default to English if device locale is null
+      // var deviceLocale = Get.deviceLocale;
+      return defaultLocale; // Default to English if device locale is null
     }
   }
 
