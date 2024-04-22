@@ -6,6 +6,7 @@ import 'package:daleelstore_asessment/ui/icons/app_icons.dart';
 import 'package:daleelstore_asessment/ui/images/app_images.dart';
 import 'package:daleelstore_asessment/ui/images/asset_image.dart';
 import 'package:daleelstore_asessment/ui/styles/spacing.dart';
+import 'package:daleelstore_asessment/widgets/onboarding/destination_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,42 +61,7 @@ class OnboardingPages extends GetView<OnboardingController> {
                     )
                   ],
                 ),
-                //TODO: clean this code
-                if (controller.selectedDestination.value == 0)
-                  Positioned.directional(
-                    end: 0,
-                    top: 0,
-                    textDirection: Directionality.of(context),
-                    child: BounceInDown(child: ImageAsset.loadImage(assetPath: AppImages.topVector1, height: 120)),
-                  ),
-                if (controller.selectedDestination.value == 0)
-                  Positioned.directional(
-                    start: 0,
-                    bottom: 0,
-                    textDirection: Directionality.of(context),
-                    child: BounceInUp(child: ImageAsset.loadImage(assetPath: AppImages.bottomVector1, height: 170)),
-                  ),
-                if (controller.selectedDestination.value == 1)
-                  Positioned.directional(
-                    end: 0,
-                    top: 0,
-                    textDirection: Directionality.of(context),
-                    child: BounceInLeft(child: ImageAsset.loadImage(assetPath: AppImages.topVector2, height: 120)),
-                  ),
-                if (controller.selectedDestination.value == 1)
-                  Positioned.directional(
-                    end: 0,
-                    bottom: 0,
-                    textDirection: Directionality.of(context),
-                    child: BounceInLeft(child: ImageAsset.loadImage(assetPath: AppImages.bottomVector2, height: 70)),
-                  ),
-                if (controller.selectedDestination.value == 1)
-                  Positioned.directional(
-                    start: 0,
-                    bottom: 0,
-                    textDirection: Directionality.of(context),
-                    child: BounceInUp(child: ImageAsset.loadImage(assetPath: AppImages.bottomVector3, height: 80)),
-                  ),
+                DestinationWidget(selectedValue: controller.selectedDestination.value),
               ],
             ),
           ),
