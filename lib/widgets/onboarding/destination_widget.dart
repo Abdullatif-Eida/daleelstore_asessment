@@ -1,19 +1,23 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:daleelstore_asessment/controllers/onboarding_controller.dart';
 import 'package:daleelstore_asessment/ui/images/app_images.dart';
 import 'package:daleelstore_asessment/ui/images/asset_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DestinationWidget extends StatelessWidget {
-  final int selectedValue;
-  const DestinationWidget({super.key, required this.selectedValue});
+  const DestinationWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return buildDestinationWidget(selectedValue, context);
+    return Obx(() {
+      return buildDestinationWidget(context);
+    });
   }
 
-  Widget buildDestinationWidget(int selectedValue, BuildContext context) {
-    switch (selectedValue) {
+  Widget buildDestinationWidget(BuildContext context) {
+    OnboardingController controller = Get.find();
+    switch (controller.selectedDestination.value) {
       case 0:
         return Stack(
           children: [
