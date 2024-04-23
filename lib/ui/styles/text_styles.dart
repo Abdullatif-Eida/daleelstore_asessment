@@ -6,12 +6,14 @@ class TextStyles {
   static final TextStyle smallBody = GoogleFonts.ibmPlexSansArabic(
     fontSize: 12,
     height: 18 / 12,
+    fontWeight: FontWeight.w500,
     color: AppColors.black,
   );
 
   static final TextStyle mediumBody = GoogleFonts.ibmPlexSansArabic(
     fontSize: 14,
     height: 21 / 14,
+    fontWeight: FontWeight.w600,
     color: AppColors.darkBase,
   );
 

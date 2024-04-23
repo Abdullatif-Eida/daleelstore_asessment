@@ -11,6 +11,13 @@ class OnboardingController extends GetxController {
   void preloadImages(BuildContext context) {
     precacheImage(const AssetImage(AppImages.background1), context);
     precacheImage(const AssetImage(AppImages.background2), context);
+    precacheImage(const AssetImage(AppImages.phone1), context);
+    precacheImage(const AssetImage(AppImages.phone2), context);
+    precacheImage(const AssetImage(AppImages.gift), context);
+    precacheImage(const AssetImage(AppImages.aCard), context);
+    precacheImage(const AssetImage(AppImages.noonCard), context);
+    precacheImage(const AssetImage(AppImages.playstationCard), context);
+    precacheImage(const AssetImage(AppImages.ultraMalinaFilmsCard), context);
   }
 
   final mySystemTheme = SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent, statusBarBrightness: Brightness.dark);
@@ -30,12 +37,11 @@ class OnboardingController extends GetxController {
   RxInt selectedDestination = 0.obs;
   int totalSteps = 2;
   void onNext() {
-    if (selectedDestination.value < 2) {
+    if (selectedDestination.value < 1) {
       selectedDestination.value = (selectedDestination.value + 1) % totalSteps;
     } else {
       _onboardingSaved();
       Get.toNamed(Routes.HOME);
-      Get.delete<OnboardingController>();
     }
   }
 

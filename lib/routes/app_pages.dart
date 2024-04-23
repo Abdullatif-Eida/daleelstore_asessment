@@ -1,16 +1,21 @@
 import 'package:daleelstore_asessment/bindings/main_binding.dart';
 import 'package:daleelstore_asessment/bindings/onboarding_binding.dart';
+import 'package:daleelstore_asessment/bindings/wallet_binding.dart';
+import 'package:daleelstore_asessment/controllers/login_controller.dart';
 import 'package:daleelstore_asessment/pages/main_page.dart';
 import 'package:daleelstore_asessment/pages/onboarding/handler.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:daleelstore_asessment/pages/wallet_page.dart';
+import 'package:get/get.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
+  static LoginController controller = Get.find();
 
-  // ignore: constant_identifier_names
-  static const INITIAL = Routes.ONBOARDING;
+  static String getInitialRoute() {
+    return controller.getRoute();
+  }
 
   static final routes = [
     GetPage(
@@ -22,6 +27,11 @@ class AppPages {
       name: _Paths.ONBOARDING,
       page: () => const OnboardingPages(),
       binding: OnboardingBinding(),
+    ),
+    GetPage(
+      name: _Paths.WALLET,
+      page: () => const WalletPage(),
+      binding: WalletBinding(),
     ),
   ];
 }
