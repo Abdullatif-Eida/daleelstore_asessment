@@ -2,6 +2,7 @@ import 'package:daleelstore_asessment/constants/cache_keys.dart';
 import 'package:daleelstore_asessment/routes/app_pages.dart';
 import 'package:daleelstore_asessment/ui/images/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,10 +13,12 @@ class OnboardingController extends GetxController {
     precacheImage(const AssetImage(AppImages.background2), context);
   }
 
+  final mySystemTheme = SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent, statusBarBrightness: Brightness.dark);
   @override
   void onReady() {
     super.onReady();
     WidgetsBinding.instance.addPostFrameCallback((_) => preloadImages(Get.context!));
+    SystemChrome.setSystemUIOverlayStyle(mySystemTheme);
   }
 
   Future<void> _onboardingSaved() async {
