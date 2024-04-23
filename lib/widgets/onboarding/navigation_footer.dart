@@ -15,6 +15,7 @@ class NavigationFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlideInUp(
+      delay: const Duration(milliseconds: 500),
       child: Column(
         children: [
           const SizedBox(height: Spacing.md),
@@ -40,7 +41,7 @@ class NavigationFooter extends StatelessWidget {
           child: Icon(
             AppIcons.chevronRight,
             color: AppColors.white,
-            size: 25,
+            size: 27,
           ),
         ),
       ),

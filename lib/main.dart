@@ -1,3 +1,4 @@
+import 'package:daleelstore_asessment/controllers/login_controller.dart';
 import 'package:daleelstore_asessment/controllers/translations.dart';
 import 'package:daleelstore_asessment/data/cache/app_settings_cache.dart';
 import 'package:daleelstore_asessment/routes/app_pages.dart';
@@ -13,6 +14,11 @@ void main() async {
     await service.init();
     return service;
   });
+
+  Get.put<LoginController>(
+    LoginController(),
+  );
+
   Locale initialLocale = await LanguageUtils.getInitialLocale();
 
   runApp(
@@ -32,7 +38,7 @@ void main() async {
       debugShowCheckedModeBanner: false,
       title: 'Daleelstore',
       theme: AppSettingsCache.getThemeMode(),
-      initialRoute: AppPages.INITIAL,
+      initialRoute: AppPages.getInitialRoute(),
       getPages: AppPages.routes,
     ),
   );

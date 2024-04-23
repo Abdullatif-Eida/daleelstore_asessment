@@ -10,7 +10,7 @@ class ImageNetwork {
     int? dimensions = 72,
   }) {
     return CachedNetworkImage(
-      imageUrl: imageUrl ?? ImageUtils.getPlaceholder(dimensions!),
+      imageUrl: imageUrl ?? ImageUtils.getPlaceholder(dimensions!, dimensions),
       fit: fit,
       placeholder: (context, url) => const Center(child: PlatformIndicator()),
       errorWidget: (context, url, error) => const Icon(Icons.error),

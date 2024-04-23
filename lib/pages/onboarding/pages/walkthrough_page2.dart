@@ -33,25 +33,23 @@ class WalkthroughPage2 extends StatelessWidget {
             ],
           ),
         ),
-        SlideInUp(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                LanguageUtils.localize("sendYourGiftNow"),
-                style: TextStyles.headline,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              LanguageUtils.localize("sendYourGiftNow"),
+              style: TextStyles.headline,
+            ),
+            const SizedBox(height: Spacing.xs),
+            Padding(
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: Spacing.lg),
+              child: Text(
+                LanguageUtils.localize("sendYourGiftNowDescription"),
+                style: TextStyles.mediumBody,
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: Spacing.xs),
-              Padding(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: Spacing.lg),
-                child: Text(
-                  LanguageUtils.localize("sendYourGiftNowDescription"),
-                  style: TextStyles.mediumBody,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );

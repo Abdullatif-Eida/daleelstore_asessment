@@ -1,5 +1,5 @@
 class ImageUtils {
-  static String getPlaceholder(int dimensions) {
-    return "https://via.placeholder.com/${dimensions}x$dimensions";
+  static String getPlaceholder(int height, int width) {
+    return "https://via.placeholder.com/${height}x$width";
   }
 }
