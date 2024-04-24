@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:daleelstore_asessment/controllers/main_controller.dart';
 import 'package:daleelstore_asessment/ui/styles/spacing.dart';
+import 'package:daleelstore_asessment/widgets/main/darawer.dart';
 import 'package:daleelstore_asessment/widgets/main/game_card.dart';
 import 'package:daleelstore_asessment/widgets/main/main_page_content.dart';
 import 'package:daleelstore_asessment/widgets/main/offer_card.dart';
@@ -9,54 +10,67 @@ import 'package:daleelstore_asessment/widgets/main/top_products.dart';
 import 'package:daleelstore_asessment/widgets/main/user_orders_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
 
 class MainPage extends GetView<MainController> {
   const MainPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: CustomScrollView(
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            pinned: false,
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            expandedHeight: 170,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                controller.bannerImage,
-                fit: BoxFit.cover,
-              ),
-            ),
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(115.0),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+    return GestureDetector(
+      onHorizontalDragEnd: (DragEndDetails details) {
+        if (details.primaryVelocity! < 0) controller.changeSLiderStatus();
+      },
+      onTap: () => controller.closeSLider(),
+      child: CupertinoPageScaffold(
+        child: SliderDrawer(
+          slideDirection: SlideDirection.RIGHT_TO_LEFT,
+          appBar: null,
+          key: controller.sliderDrawerKey,
+          slider: const DrawerWidget(),
+          child: CustomScrollView(
+            physics: const ClampingScrollPhysics(),
+            slivers: [
+              SliverAppBar(
+                pinned: false,
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                expandedHeight: 170,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Image.network(
+                    controller.bannerImage,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                height: 30,
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(115.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+                    ),
+                    height: 30,
+                  ),
+                ),
               ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: BounceInUp(
-              child: Column(
-                children: [
-                  const MainPageContent(),
-                  sectionWithTitle("اطلبها مجدداً", "طلباتي السابقة", const UserOrdersCard(), 10, 319),
-                  sectionWithTitle("الاكثر مبيعاً", "مشاهدة الكل", const GameCardWidget(), 10, 387),
-                  sectionWithTitle("البطاقات المخفضة", "مشاهدة الكل", const UserOrdersCard(isDiscounted: true), 10, 319),
-                  sectionWithTitle("احدث المنتجات", "مشاهدة الكل", const TopProducts(), 10, 240),
-                  sectionWithTitle("استبدل نقاطك", "مشاهدة الكل", const UserOrdersCard(isRedeemableByCards: true), 10, 319),
-                  sectionWithTitle("عروض الشركاء", "مشاهدة الكل", const OfferCard(), 10, 240),
-                ],
+              SliverToBoxAdapter(
+                child: BounceInUp(
+                  child: Column(
+                    children: [
+                      const MainPageContent(),
+                      sectionWithTitle("اطلبها مجدداً", "طلباتي السابقة", const UserOrdersCard(), 10, 319),
+                      sectionWithTitle("الاكثر مبيعاً", "مشاهدة الكل", const GameCardWidget(), 10, 387),
+                      sectionWithTitle("البطاقات المخفضة", "مشاهدة الكل", const UserOrdersCard(isDiscounted: true), 10, 319),
+                      sectionWithTitle("احدث المنتجات", "مشاهدة الكل", const TopProducts(), 10, 240),
+                      sectionWithTitle("استبدل نقاطك", "مشاهدة الكل", const UserOrdersCard(isRedeemableByCards: true), 10, 319),
+                      sectionWithTitle("عروض الشركاء", "مشاهدة الكل", const OfferCard(), 10, 240),
+                    ],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

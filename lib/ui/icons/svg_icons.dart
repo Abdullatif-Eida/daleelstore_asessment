@@ -13,4 +13,8 @@ class AppSvgIcons {
   static const String shopBag = '$_prefiximagelink/shop_bag.svg';
   static const String applePay = '$_prefiximagelink/apple_pay.svg';
   static const String arrowRight = '$_prefiximagelink/arrow_right.svg';
+
+  static const String add = '$_prefiximagelink/add.svg';
+  static const String gift = '$_prefiximagelink/gift.svg';
+  static const String sendMoney = '$_prefiximagelink/send_money.svg';
 }
