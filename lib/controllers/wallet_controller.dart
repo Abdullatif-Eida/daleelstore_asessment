@@ -12,12 +12,11 @@ class WalletController extends GetxController {
   RxBool isExpanded = false.obs;
   final GlobalKey<SliderDrawerState> sliderDrawerKey = GlobalKey<SliderDrawerState>();
 
-  final mySystemTheme = SystemUiOverlayStyle.light.copyWith(statusBarColor: AppColors.secondaryGreen, statusBarBrightness: Brightness.light);
   @override
   void onReady() {
     getMockPaymnets();
+
     super.onReady();
-    SystemChrome.setSystemUIOverlayStyle(mySystemTheme);
   }
 
   void toggleTransactionExpansion(int index) {

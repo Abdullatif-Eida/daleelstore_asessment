@@ -20,12 +20,10 @@ class OnboardingController extends GetxController {
     precacheImage(const AssetImage(AppImages.ultraMalinaFilmsCard), context);
   }
 
-  final mySystemTheme = SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent, statusBarBrightness: Brightness.dark);
   @override
   void onReady() {
     super.onReady();
     WidgetsBinding.instance.addPostFrameCallback((_) => preloadImages(Get.context!));
-    SystemChrome.setSystemUIOverlayStyle(mySystemTheme);
   }
 
   Future<void> _onboardingSaved() async {

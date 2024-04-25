@@ -1,6 +1,8 @@
 import 'package:daleelstore_asessment/models/categories_list_model.dart';
+import 'package:daleelstore_asessment/ui/colors/app_colors.dart';
 import 'package:daleelstore_asessment/ui/icons/svg_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +29,6 @@ class MainController extends GetxController with WidgetsBindingObserver {
   void onInit() async {
     super.onInit();
     WidgetsBinding.instance.addObserver(this);
-    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
   }
 
   void changeSLiderStatus() {

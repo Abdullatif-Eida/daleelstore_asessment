@@ -22,6 +22,7 @@ class OnboardingPages extends GetView<OnboardingController> {
         Get.back();
       },
       child: CupertinoPageScaffold(
+        resizeToAvoidBottomInset: false,
         child: FadeIn(
           child: Obx(() {
             return CustomBackgroundDecoration(

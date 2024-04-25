@@ -23,13 +23,14 @@ class WalletPage extends GetView<WalletController> {
   Widget build(BuildContext context) {
     final MainController mainController = Get.find();
     return CupertinoPageScaffold(
+      backgroundColor: AppColors.secondaryGreen,
+      resizeToAvoidBottomInset: false,
       child: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
           if (details.primaryVelocity! < 0) mainController.changeSLiderStatus();
         },
         onTap: () => mainController.closeSLider(),
-        child: SafeArea(
-            child: SliderDrawer(
+        child: SliderDrawer(
           slideDirection: SlideDirection.RIGHT_TO_LEFT,
           appBar: null,
           slider: const DrawerWidget(),
@@ -79,7 +80,7 @@ class WalletPage extends GetView<WalletController> {
               ],
             ),
           ),
-        )),
+        ),
       ),
     );
   }
@@ -88,91 +89,94 @@ class WalletPage extends GetView<WalletController> {
     return Container(
       color: AppColors.secondaryGreen,
       padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              UserDetailsRow(
-                drawerIconColor: AppColors.white,
-                userNameSliderStyle: TextStyles.headline.copyWith(color: AppColors.white),
-              ),
-              const Row(
-                children: [
-                  IconWithBorder(icon: AppSvgIcons.bell, color: AppColors.secondaryGreen),
-                  SizedBox(width: Spacing.xs + 2),
-                  IconWithBorder(icon: AppSvgIcons.shop, color: AppColors.secondaryGreen)
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: Spacing.lg),
-          Container(
-            width: 367,
-            height: 184,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFF2AB97E), // 100% opacity
-                  Color(0x4D4ABC8D), // 65% opacity
-                ],
-              ),
+      child: Padding(
+        padding: EdgeInsets.only(top: 15),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                UserDetailsRow(
+                  drawerIconColor: AppColors.white,
+                  userNameSliderStyle: TextStyles.headline.copyWith(color: AppColors.white),
+                ),
+                const Row(
+                  children: [
+                    IconWithBorder(icon: AppSvgIcons.bell, color: AppColors.secondaryGreen),
+                    SizedBox(width: Spacing.xs + 2),
+                    IconWithBorder(icon: AppSvgIcons.shop, color: AppColors.secondaryGreen)
+                  ],
+                ),
+              ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    'الرصيد الحالي',
-                    style: TextStyles.mediumBody.copyWith(color: AppColors.white, fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    '14,235.34 ريال',
-                    style: TextStyles.largeHeadline.copyWith(fontSize: 30, color: AppColors.white, fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  const IntrinsicHeight(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        TransactionButton(
-                          icon: AppSvgIcons.add,
-                          label: 'إضافة الأموال',
-                          height: 20,
-                          width: 20,
-                        ),
-                        VerticalDivider(
-                          color: AppColors.white,
-                          thickness: 2,
-                        ),
-                        TransactionButton(
-                          icon: AppSvgIcons.gift,
-                          label: 'إهداء الأموال',
-                          height: 20,
-                          width: 20,
-                        ),
-                        VerticalDivider(
-                          color: AppColors.white,
-                          thickness: 2,
-                        ),
-                        TransactionButton(
-                          icon: AppSvgIcons.sendMoney,
-                          label: 'طلب الأموال',
-                          height: 20,
-                          width: 20,
-                        ),
-                      ],
+            const SizedBox(height: Spacing.lg),
+            Container(
+              width: 367,
+              height: 184,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFF2AB97E), // 100% opacity
+                    Color(0x4D4ABC8D), // 65% opacity
+                  ],
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      'الرصيد الحالي',
+                      style: TextStyles.mediumBody.copyWith(color: AppColors.white, fontWeight: FontWeight.w500),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 5),
+                    Text(
+                      '14,235.34 ريال',
+                      style: TextStyles.largeHeadline.copyWith(fontSize: 30, color: AppColors.white, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    const IntrinsicHeight(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          TransactionButton(
+                            icon: AppSvgIcons.add,
+                            label: 'إضافة الأموال',
+                            height: 20,
+                            width: 20,
+                          ),
+                          VerticalDivider(
+                            color: AppColors.white,
+                            thickness: 2,
+                          ),
+                          TransactionButton(
+                            icon: AppSvgIcons.gift,
+                            label: 'إهداء الأموال',
+                            height: 20,
+                            width: 20,
+                          ),
+                          VerticalDivider(
+                            color: AppColors.white,
+                            thickness: 2,
+                          ),
+                          TransactionButton(
+                            icon: AppSvgIcons.sendMoney,
+                            label: 'طلب الأموال',
+                            height: 20,
+                            width: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

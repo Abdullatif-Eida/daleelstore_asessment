@@ -5,16 +5,6 @@ import 'package:get/get.dart';
 class WalletBinding extends Bindings {
   @override
   void dependencies() {
-    //TODO:DELETE THIS
-    Get.lazyPut<MainController>(
-      () => MainController(),
-    );
-
-    Get.put<MainController>(
-      MainController(),
-      permanent: true,
-    );
-
     Get.lazyPut<WalletController>(
       () => WalletController(),
     );
