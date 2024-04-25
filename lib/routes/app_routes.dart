@@ -4,6 +4,7 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
   static const HOME = _Paths.HOME;
+  static const MAIN = _Paths.MAIN;
   static const ONBOARDING = _Paths.ONBOARDING;
   static const WALLET = _Paths.WALLET;
 }
@@ -11,6 +12,7 @@ abstract class Routes {
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
+  static const MAIN = '/main';
   static const ONBOARDING = '/onboarding';
   static const WALLET = '/wallet';
 }

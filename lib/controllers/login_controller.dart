@@ -18,6 +18,6 @@ class LoginController extends GetxController {
   }
 
   String getRoute() {
-    return isOnboardingDone.value ? Routes.WALLET : Routes.ONBOARDING;
+    return isOnboardingDone.value ? Routes.HOME : Routes.ONBOARDING;
   }
 }

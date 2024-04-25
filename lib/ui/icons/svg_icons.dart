@@ -17,4 +17,5 @@ class AppSvgIcons {
   static const String add = '$_prefiximagelink/add.svg';
   static const String gift = '$_prefiximagelink/gift.svg';
   static const String sendMoney = '$_prefiximagelink/send_money.svg';
+  static const String outgoing = '$_prefiximagelink/outgoing.svg';
 }
