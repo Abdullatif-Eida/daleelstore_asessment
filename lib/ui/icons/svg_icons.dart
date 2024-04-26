@@ -23,4 +23,11 @@ class AppSvgIcons {
   static const String myOrders = '$_prefiximagelink/my-orders.svg';
   static const String categories = '$_prefiximagelink/categories.svg';
   static const String home = '$_prefiximagelink/home.svg';
+
+  static const String about = '$_prefiximagelink/about.svg';
+  static const String info = '$_prefiximagelink/info.svg';
+  static const String translate = '$_prefiximagelink/translate.svg';
+  static const String moon = '$_prefiximagelink/moon.svg';
+  static const String drawerStar = '$_prefiximagelink/drawer-star.svg';
+  static const String settings = '$_prefiximagelink/settings.svg';
 }

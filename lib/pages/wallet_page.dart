@@ -21,15 +21,14 @@ class WalletPage extends GetView<WalletController> {
   const WalletPage({super.key});
   @override
   Widget build(BuildContext context) {
-    final MainController mainController = Get.find();
     return CupertinoPageScaffold(
       backgroundColor: AppColors.secondaryGreen,
       resizeToAvoidBottomInset: false,
       child: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
-          if (details.primaryVelocity! < 0) mainController.changeSLiderStatus();
+          if (details.primaryVelocity! < 0) controller.changeSLiderStatus();
         },
-        onTap: () => mainController.closeSLider(),
+        onTap: () => controller.closeSLider(),
         child: SliderDrawer(
           slideDirection: SlideDirection.RIGHT_TO_LEFT,
           appBar: null,
@@ -90,7 +89,7 @@ class WalletPage extends GetView<WalletController> {
       color: AppColors.secondaryGreen,
       padding: const EdgeInsets.all(16.0),
       child: Padding(
-        padding: EdgeInsets.only(top: 15),
+        padding: const EdgeInsets.only(top: 15),
         child: Column(
           children: [
             Row(
@@ -99,6 +98,7 @@ class WalletPage extends GetView<WalletController> {
                 UserDetailsRow(
                   drawerIconColor: AppColors.white,
                   userNameSliderStyle: TextStyles.headline.copyWith(color: AppColors.white),
+                  onTap: () => controller.changeSLiderStatus(),
                 ),
                 const Row(
                   children: [
@@ -265,7 +265,7 @@ class WalletPage extends GetView<WalletController> {
                       ],
                     ),
                     crossFadeState: transaction.isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                   ),
                 ],
               )),

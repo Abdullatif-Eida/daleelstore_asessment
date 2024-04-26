@@ -10,7 +10,8 @@ import 'package:get/get.dart';
 class UserDetailsRow extends StatelessWidget {
   final Color? drawerIconColor;
   final TextStyle? userNameSliderStyle;
-  const UserDetailsRow({super.key, this.drawerIconColor, this.userNameSliderStyle});
+  final Function() onTap;
+  const UserDetailsRow({super.key, this.drawerIconColor, this.userNameSliderStyle, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,9 @@ class UserDetailsRow extends StatelessWidget {
     return Row(
       children: [
         GestureDetector(
-          onTap: () => controller.changeSLiderStatus(),
+          onTap: () {
+            onTap();
+          },
           child: Icon(
             AppIcons.menue1,
             color: drawerIconColor ?? AppColors.black,

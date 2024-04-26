@@ -19,6 +19,14 @@ class WalletController extends GetxController {
     super.onReady();
   }
 
+  void changeSLiderStatus() {
+    if (sliderDrawerKey.currentState!.isDrawerOpen) {
+      sliderDrawerKey.currentState!.closeSlider();
+    } else {
+      sliderDrawerKey.currentState!.openSlider();
+    }
+  }
+
   void toggleTransactionExpansion(int index) {
     mockTransactions[index] = mockTransactions[index].copyWith(
       isExpanded: !mockTransactions[index].isExpanded,
@@ -28,5 +36,9 @@ class WalletController extends GetxController {
 
   getMockPaymnets() {
     mockTransactions.addAll(transactions);
+  }
+
+  void closeSLider() {
+    sliderDrawerKey.currentState!.closeSlider();
   }
 }

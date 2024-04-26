@@ -1,3 +1,8 @@
+import 'package:daleelstore_asessment/ui/colors/app_colors.dart';
+import 'package:daleelstore_asessment/ui/icons/svg_icons.dart';
+import 'package:daleelstore_asessment/ui/images/svg_image.dart';
+import 'package:daleelstore_asessment/ui/styles/spacing.dart';
+import 'package:daleelstore_asessment/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -6,46 +11,73 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      backgroundColor: AppColors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("القائمة الرئيسية"),
-          ListTile(
-            leading: Icon(Icons.message),
-            title: Text('المحادثات'),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Text("القائمة الرئيسية", style: TextStyles.subHeadline.copyWith(color: AppColors.primaryBase, fontWeight: FontWeight.w700)),
           ),
-          ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('الملف الشخصي'),
+          const DrawerLisTile(title: "سلتي", icon: AppSvgIcons.shop),
+          const DrawerLisTile(title: "الطلبات السابقة", icon: AppSvgIcons.myOrders),
+          const DrawerLisTile(title: "عن دليل ستور", icon: AppSvgIcons.about),
+          const DrawerLisTile(title: "نظام دليل ستارز", icon: AppSvgIcons.drawerStar),
+          const DrawerLisTile(title: "اختيار اللغة", icon: AppSvgIcons.translate),
+          const DrawerLisTile(
+            title: "الوضع المظلم",
+            icon: AppSvgIcons.moon,
+            isSwitchNedded: true,
           ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('الإعدادات'),
+          const DrawerLisTile(title: "الاعدادات", icon: AppSvgIcons.settings),
+          const DrawerLisTile(title: "الدعم الفني", icon: AppSvgIcons.info),
+        ],
+      ),
+    );
+  }
+}
+
+class DrawerLisTile extends StatelessWidget {
+  const DrawerLisTile({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.isSwitchNedded,
+  });
+  final String title;
+  final String icon;
+  final bool? isSwitchNedded;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SVGImage.loadImage(assetPath: icon, color: AppColors.darkBase, height: 25, width: 25),
+              const SizedBox(width: Spacing.xs + 4),
+              Text(title, style: TextStyles.mediumBody.copyWith(color: AppColors.darkBase, fontWeight: FontWeight.w600)),
+            ],
           ),
-          ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('تغيير دليل سفر'),
-          ),
-          ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('تحقق من اللغة'),
-          ),
-          ListTile(
-            leading: Icon(Icons.map),
-            title: Text('الوصول للخريطة'),
-          ),
-          ListTile(
-            leading: Icon(Icons.help),
-            title: Text('الاعدادات'),
-          ),
-          ListTile(
-            leading: Icon(Icons.calendar_today),
-            title: Text('التقويم الفعلي'),
-          ),
-          ListTile(
-            leading: Icon(Icons.airplane_ticket),
-            title: Text('تسجيل الدخول'),
-          ),
+          if (isSwitchNedded == true)
+            SizedBox(
+              height: 36,
+              width: 20,
+              child: Transform.scale(
+                scale: 0.7,
+                child: Switch(
+                  value: true,
+                  onChanged: (bool value) {},
+                  activeThumbImage: new NetworkImage('https://lists.gnu.org/archive/html/emacs-devel/2015-10/pngR9b4lzUy39.png'),
+                  inactiveThumbImage: new NetworkImage('http://wolfrosch.com/_img/works/goodies/icon/vim@2x'),
+                ),
+              ),
+            ),
+          if (isSwitchNedded != true) SVGImage.loadImage(assetPath: icon, color: AppColors.darkBase, height: 25, width: 25),
         ],
       ),
     );
