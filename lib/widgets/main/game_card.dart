@@ -1,4 +1,5 @@
 import 'package:daleelstore_asessment/ui/colors/app_colors.dart';
+import 'package:daleelstore_asessment/ui/decorations/box_shadows.dart';
 import 'package:daleelstore_asessment/ui/icons/svg_icons.dart';
 import 'package:daleelstore_asessment/ui/images/network_image.dart';
 import 'package:daleelstore_asessment/ui/images/svg_image.dart';
@@ -21,14 +22,7 @@ class GameCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: AppColors.white,
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.black.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 14,
-            offset: const Offset(0, 5),
-          ),
-        ],
+        boxShadow: CustomBoxShadow.boxShadow,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),

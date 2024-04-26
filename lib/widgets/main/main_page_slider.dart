@@ -20,7 +20,7 @@ class MainPageSlider extends StatelessWidget {
         SizedBox(
           height: 236,
           child: PageView.builder(
-              itemCount: 4,
+              itemCount: 1,
               controller: pageController,
               itemBuilder: (conetxt, index) {
                 return SizedBox(
@@ -33,7 +33,7 @@ class MainPageSlider extends StatelessWidget {
         Center(
           child: SmoothPageIndicator(
             controller: pageController,
-            count: 4,
+            count: 1,
             effect: ExpandingDotsEffect(
               dotHeight: 7,
               activeDotColor: AppColors.primaryBase,

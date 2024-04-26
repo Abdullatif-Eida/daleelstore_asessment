@@ -40,7 +40,7 @@ class CategoryRowWidget extends StatelessWidget {
                   item.label,
                   maxFontSize: 10,
                   minFontSize: 8,
-                  style: TextStyles.smallBody.copyWith(color: AppColors.darkBase),
+                  style: TextStyles.smallBody.copyWith(color: AppColors.bottomNavigationStyleColorBorder),
                 ),
               ],
             );

@@ -15,4 +15,5 @@ class AppImages {
   static const String bottomVector2 = '$_prefiximagelink/onboarding/bottom_vector_2.png';
   static const String bottomVector3 = '$_prefiximagelink/onboarding/bottom_vector_3.png';
   static const String gift = '$_prefiximagelink/onboarding/gift.png';
+  static const String background = '$_prefiximagelink/main/background.png';
 }

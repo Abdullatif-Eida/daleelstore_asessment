@@ -1,4 +1,3 @@
-import 'package:daleelstore_asessment/controllers/main_controller.dart';
 import 'package:daleelstore_asessment/controllers/wallet_controller.dart';
 import 'package:daleelstore_asessment/models/transaction.dart';
 import 'package:daleelstore_asessment/ui/colors/app_colors.dart';
@@ -10,10 +9,8 @@ import 'package:daleelstore_asessment/widgets/icon_with_border.dart';
 import 'package:daleelstore_asessment/widgets/main/darawer.dart';
 import 'package:daleelstore_asessment/widgets/main/section_title.dart';
 import 'package:daleelstore_asessment/widgets/main/user_details_row.dart';
-import 'package:daleelstore_asessment/widgets/wallet/cupertino_transaction_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
 
@@ -41,6 +38,7 @@ class WalletPage extends GetView<WalletController> {
                   pinned: false,
                   elevation: 0,
                   expandedHeight: 330,
+                  automaticallyImplyLeading: false,
                   backgroundColor: Colors.transparent,
                   flexibleSpace: FlexibleSpaceBar(
                     background: _buildBalanceInfo(),
@@ -89,7 +87,7 @@ class WalletPage extends GetView<WalletController> {
       color: AppColors.secondaryGreen,
       padding: const EdgeInsets.all(16.0),
       child: Padding(
-        padding: const EdgeInsets.only(top: 15),
+        padding: const EdgeInsets.only(top: 25),
         child: Column(
           children: [
             Row(

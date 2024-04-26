@@ -95,7 +95,7 @@ class BottomNavigationItem extends StatelessWidget {
               Container(
                 height: 6,
                 width: 6,
-                decoration: BoxDecoration(color: AppColors.primaryBase, shape: BoxShape.circle),
+                decoration: const BoxDecoration(color: AppColors.primaryBase, shape: BoxShape.circle),
               ),
             const SizedBox(height: 4),
             SVGImage.loadImage(

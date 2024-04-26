@@ -1,6 +1,8 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:daleelstore_asessment/controllers/main_controller.dart';
+import 'package:daleelstore_asessment/ui/images/app_images.dart';
+import 'package:daleelstore_asessment/ui/images/network_image.dart';
 import 'package:daleelstore_asessment/ui/styles/spacing.dart';
+import 'package:daleelstore_asessment/widgets/custom_background_decoration.dart';
 import 'package:daleelstore_asessment/widgets/main/darawer.dart';
 import 'package:daleelstore_asessment/widgets/main/game_card.dart';
 import 'package:daleelstore_asessment/widgets/main/main_page_content.dart';
@@ -29,7 +31,7 @@ class MainPage extends GetView<MainController> {
           key: controller.sliderDrawerKey,
           slider: const DrawerWidget(),
           child: CustomScrollView(
-            physics: const ClampingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             slivers: [
               SliverAppBar(
                 pinned: false,
@@ -37,13 +39,14 @@ class MainPage extends GetView<MainController> {
                 backgroundColor: Colors.transparent,
                 expandedHeight: 170,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.network(
-                    controller.bannerImage,
+                  background: ImageNetwork.loadImage(
+                    imageUrl: controller.bannerImage,
                     fit: BoxFit.cover,
                   ),
                 ),
+                automaticallyImplyLeading: false,
                 bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(115.0),
+                  preferredSize: const Size.fromHeight(0.0),
                   child: Container(
                     decoration: const BoxDecoration(
                       color: Colors.white,
@@ -54,18 +57,24 @@ class MainPage extends GetView<MainController> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: BounceInUp(
-                  child: Column(
-                    children: [
-                      const MainPageContent(),
-                      sectionWithTitle("اطلبها مجدداً", "طلباتي السابقة", const UserOrdersCard(), 10, 319),
-                      sectionWithTitle("الاكثر مبيعاً", "مشاهدة الكل", const GameCardWidget(), 10, 387),
-                      sectionWithTitle("البطاقات المخفضة", "مشاهدة الكل", const UserOrdersCard(isDiscounted: true), 10, 319),
-                      sectionWithTitle("احدث المنتجات", "مشاهدة الكل", const TopProducts(), 10, 240),
-                      sectionWithTitle("استبدل نقاطك", "مشاهدة الكل", const UserOrdersCard(isRedeemableByCards: true), 10, 319),
-                      sectionWithTitle("عروض الشركاء", "مشاهدة الكل", const OfferCard(), 10, 240),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    const MainPageContent(),
+                    CustomBackgroundDecoration(
+                      imagePath: AppImages.background,
+                      fit: BoxFit.cover,
+                      child: Column(
+                        children: [
+                          sectionWithTitle("اطلبها مجدداً", "طلباتي السابقة", const UserOrdersCard(), 10, 319),
+                          sectionWithTitle("الاكثر مبيعاً", "مشاهدة الكل", const GameCardWidget(), 10, 387),
+                          sectionWithTitle("البطاقات المخفضة", "مشاهدة الكل", const UserOrdersCard(isDiscounted: true), 10, 319),
+                          sectionWithTitle("احدث المنتجات", "مشاهدة الكل", const TopProducts(), 10, 240),
+                          sectionWithTitle("استبدل نقاطك", "مشاهدة الكل", const UserOrdersCard(isRedeemableByCards: true), 10, 319),
+                          sectionWithTitle("عروض الشركاء", "مشاهدة الكل", const OfferCard(), 10, 240),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

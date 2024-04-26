@@ -5,7 +5,6 @@ import 'package:daleelstore_asessment/routes/app_pages.dart';
 import 'package:daleelstore_asessment/services/shared_preferences_service.dart';
 import 'package:daleelstore_asessment/utils/language_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() async {

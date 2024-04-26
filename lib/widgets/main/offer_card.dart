@@ -1,4 +1,5 @@
 import 'package:daleelstore_asessment/ui/colors/app_colors.dart';
+import 'package:daleelstore_asessment/ui/decorations/box_shadows.dart';
 import 'package:daleelstore_asessment/ui/styles/spacing.dart';
 import 'package:daleelstore_asessment/ui/styles/text_styles.dart';
 import 'package:daleelstore_asessment/widgets/custom_button.dart';
@@ -18,14 +19,7 @@ class OfferCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 14,
-            offset: const Offset(0, 5),
-          ),
-        ],
+        boxShadow: CustomBoxShadow.boxShadow,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -42,7 +36,7 @@ class OfferCard extends StatelessWidget {
           Text("كوبون فوغا كلوسيت", textAlign: TextAlign.center, style: TextStyles.mediumBody.copyWith(fontSize: 15)),
           const SizedBox(height: Spacing.xs),
           Text("خصم يصل الي 30%", textAlign: TextAlign.center, style: TextStyles.mediumBody.copyWith(color: AppColors.textGrey)),
-          const SizedBox(height: Spacing.md - 4),
+          const SizedBox(height: Spacing.sm - 4),
           CustomButton(
             text: "كود الخصم",
             containerWidth: 192,

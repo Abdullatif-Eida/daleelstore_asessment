@@ -1,9 +1,7 @@
-import 'package:daleelstore_asessment/mocks/mockTransactions.dart';
+import 'package:daleelstore_asessment/mocks/mock_transactions.dart';
 import 'package:daleelstore_asessment/models/transaction.dart';
-import 'package:daleelstore_asessment/ui/colors/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
 

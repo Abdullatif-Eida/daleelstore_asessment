@@ -24,6 +24,9 @@ class OnboardingController extends GetxController {
   void onReady() {
     super.onReady();
     WidgetsBinding.instance.addPostFrameCallback((_) => preloadImages(Get.context!));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
   }
 
   Future<void> _onboardingSaved() async {

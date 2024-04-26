@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 class CustomBackgroundDecoration extends StatelessWidget {
   final String imagePath;
   final Widget child;
-  const CustomBackgroundDecoration({super.key, required this.imagePath, required this.child});
+  final BoxFit? fit;
+  const CustomBackgroundDecoration({super.key, required this.imagePath, required this.child, this.fit});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class CustomBackgroundDecoration extends StatelessWidget {
     return BoxDecoration(
       image: DecorationImage(
         image: AssetImage(imagePath),
-        fit: BoxFit.contain,
+        fit: fit ?? BoxFit.contain,
       ),
     );
   }
