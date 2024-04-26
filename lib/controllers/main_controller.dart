@@ -16,8 +16,6 @@ class MainController extends GetxController with WidgetsBindingObserver {
   String pub = "https://firebasestorage.googleapis.com/v0/b/masjidi-cab0a.appspot.com/o/pub.png?alt=media&token=a30596a1-4158-4ba9-8163-2a9b9545c944";
   String lol = "https://firebasestorage.googleapis.com/v0/b/masjidi-cab0a.appspot.com/o/lol.png?alt=media&token=cfd592f3-c3d8-4b53-958c-c9fcbcf8824a";
 
-  final GlobalKey<SliderDrawerState> sliderDrawerKey = GlobalKey<SliderDrawerState>();
-
   List<CategoriesListModel> categories = [
     CategoriesListModel(iconPath: AppSvgIcons.buy, label: "منصات شراء"),
     CategoriesListModel(iconPath: AppSvgIcons.ecommerce, label: "متاجر رقمية"),
@@ -30,6 +28,8 @@ class MainController extends GetxController with WidgetsBindingObserver {
     super.onInit();
     WidgetsBinding.instance.addObserver(this);
   }
+
+  final GlobalKey<SliderDrawerState> sliderDrawerKey = GlobalKey<SliderDrawerState>();
 
   void changeSLiderStatus() {
     if (sliderDrawerKey.currentState!.isDrawerOpen) {

@@ -30,4 +30,7 @@ class AppSvgIcons {
   static const String moon = '$_prefiximagelink/moon.svg';
   static const String drawerStar = '$_prefiximagelink/drawer-star.svg';
   static const String settings = '$_prefiximagelink/settings.svg';
+  static const String sun = '$_prefiximagelink/sun.svg';
+  static const String arrowLeft = '$_prefiximagelink/arrow-left.svg';
+  static const String logout = '$_prefiximagelink/logout.svg';
 }

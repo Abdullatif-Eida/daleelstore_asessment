@@ -46,7 +46,7 @@ class WalletPage extends GetView<WalletController> {
                     background: _buildBalanceInfo(),
                   ),
                   bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(280.0),
+                    preferredSize: const Size.fromHeight(0.0),
                     child: Container(
                       decoration: const BoxDecoration(
                         color: Colors.white,

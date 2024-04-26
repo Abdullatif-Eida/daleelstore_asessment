@@ -15,5 +15,5 @@ class AppColors {
   static const Color bottomNavigationColor = Color(0xFFF9F9FB);
   static const Color bottomNavigationColorBorder = Color(0xFFEDEDED);
   static const Color bottomNavigationStyleColorBorder = Color(0xFFB1B1BF);
-  
+  static const Color switchColor = Color(0xFFD7DFE9);
 }
